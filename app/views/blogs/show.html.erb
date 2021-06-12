@@ -3,7 +3,7 @@
             
 
 
-        <%= image_tag(@blog.profile_pic, class:"img_box")%>
+        <%= image_tag(@blog.profile_pic, class:"img_box") if @blog.profile_pic.attached?%>
   
             <h4><%= @blog.written_by %>(<%= @blog.job_title %>)</h4>
           

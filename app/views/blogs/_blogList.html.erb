@@ -4,7 +4,7 @@
         <div class="box mb-3">
             <div class="card-body">
                 <h4> <%= f.title %></h4>
-                <p class="card-text"> <%= image_tag(f.profile_pic,class:"p_image")%> <%= f.written_by %>
+                <p class="card-text"> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%> <%= f.written_by %>
                     (<%= f.job_title %>)<%= f.created_at.strftime("%B %d %Y") %></p>
                    
 

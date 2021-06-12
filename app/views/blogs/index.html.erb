@@ -12,7 +12,7 @@
                 <% @blog.each do |f| %>
                 <p> <%= f.title %></p>
 
-                <p> <%= image_tag(f.profile_pic,class:"p_image")%>
+                <p> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
 
                     <%= f.written_by %>(<%= f.created_at.strftime("%B %d %Y") %>)</p>
                 <hr />
