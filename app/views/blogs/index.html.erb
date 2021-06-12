@@ -1,4 +1,3 @@
-
 <style>
     .p_image {
         width: 30px;
@@ -15,14 +14,30 @@
 
                 <p> <%= image_tag(f.profile_pic,class:"p_image")%>
 
-                    <%= f.written_by %>(<%= f.created_at.strftime("%B %d %Y") %>)</p><hr/>
+                    <%= f.written_by %>(<%= f.created_at.strftime("%B %d %Y") %>)</p>
+                <hr />
 
                 <% end %>
         </div>
         <div class="col-md-9">
-     
-  <%= render 'blogs/blogList' %>
+        <div class="row">
+        <div class="col-md-6">
+        <%= search_form_for @q do |f| %>
+           <%= f.search_field :title_cont, class:"py-1 search" %> 
+           <%= f.submit class:"btn btn-outline-success " %>
+
+           
+            <% end %>
+        
+        </div>
+        <div class="col-md-6">
+         <%= link_to 'add new ', new_blog_path, class:"btn btn-outline-info float-right "%>
+         </div>
+        </div>
             
+
+            <%= render 'blogs/blogList' %>
+
         </div>
 
     </div>

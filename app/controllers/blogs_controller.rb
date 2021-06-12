@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
     def index
-        @blog = Blog.order("created_at DESC")
+        # @blog = Blog.order("created_at DESC")
+        @q = Blog.ransack(params[:q])
+        @blog = @q.result(distinct: true)
     end
 
     def new
