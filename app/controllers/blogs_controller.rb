@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
     def index
-        @blog = Blog.all
+        @blog = Blog.order("created_at DESC")
     end
 
     def new
@@ -43,6 +43,6 @@ class BlogsController < ApplicationController
 
     private
     def post_params
-        params.require(:blog).permit(:written_by,:job_title,:title,:description)
+        params.require(:blog).permit(:written_by,:profile_pic,:job_title,:title,:description)
     end
 end

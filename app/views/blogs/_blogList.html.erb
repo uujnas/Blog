@@ -1,0 +1,24 @@
+    <%= link_to 'add new ', new_blog_path, class:"btn btn-outline-info float-right "%>
+    <h3 class="spacing py-5 text-center">Our Blogs </h4>
+        <% @blog.each do |f| %>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><span> <%= f.title %></span> </h5>
+                <p class="card-text"> <%= image_tag(f.profile_pic,class:"p_image")%> <%= f.written_by %>
+                    (<%= f.job_title %>)<%= f.created_at.strftime("%B %d %Y") %></p>
+                   
+
+                <p class="card-text ml-auto">
+                        <%= link_to blog_path(f) do %><i class="fas fa-eye text-success"></i><% end %>
+                        <%= link_to  edit_blog_path(f) do %><i class="fas fa-pencil-alt text-primary"></i><% end %>
+                        <%= link_to  blog_path(f),method: :delete, data:{confirm:"Are you sure you want to delete '#{f.title}?'"} do %><i class="fas fa-trash-alt text-danger"></i><% end %>
+                </p>
+            </div>
+        </div>
+
+
+
+
+        <%# <%= f.description %>
+
+        <% end %>

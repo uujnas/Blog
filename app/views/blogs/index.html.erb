@@ -1,30 +1,30 @@
+
+<style>
+    .p_image {
+        width: 30px;
+        height: auto;
+        border-radius: 50%;
+    }
+</style>
 <div class="container">
-<div class="row">
-<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-3 recent-article">
+            <h6 class="heading py-2">Recent Articles</h4>
+                <% @blog.each do |f| %>
+                <p> <%= f.title %></p>
 
+                <p> <%= image_tag(f.profile_pic,class:"p_image")%>
 
-            <h4> Blogs </h4>
-            <%= link_to 'Add blog', new_blog_path%>
-            <% @blog.each do |f| %>
-            <p><%= f.written_by %></p> 
-            <p><%= f.job_title %></p> 
-            <p><%= f.title %></p>
-            <%= f.description %>
-            <%= link_to 'Show', blog_path(f) %>   
-            <%= link_to 'edit', edit_blog_path(f) %>   
-            <%= link_to 'delete', blog_path(f),method: :delete, data:{confirm:"Are you sure you want to delete #{f.title}?"} %>   
-    
+                    <%= f.written_by %>(<%= f.created_at.strftime("%B %d %Y") %>)</p><hr/>
 
-<% end %>
+                <% end %>
+        </div>
+        <div class="col-md-9">
+     
+  <%= render 'blogs/blogList' %>
+            
+        </div>
+
+    </div>
+
 </div>
-
-</div>
-
-</div>
-      
-  
-
-
-
-
-

@@ -8,6 +8,11 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
 }
+body{
+    .spacing{
+        margin: 20px;
+    }
+}
 .navbar{
     #logo{
         width: auto;
@@ -48,6 +53,13 @@ ul,
 li {
     list-style-type: none;
 
+}
+.recent-article{
+    line-height:4px;
+    .heading{
+        font-size: 20px;
+        font-weight: 600;
+    }
 }
 
 .footer {
@@ -125,4 +137,33 @@ li {
         margin-bottom: 0px;
         background-color: $darkprimary;
     }
+}
+.r_recent{
+    width: auto;
+    height: 20px;
+}
+
+.card {
+    background-color: rgb(242, 253, 234) !important;
+    .card-body{
+        .card-title{
+           
+                span{
+                    color: $darkprimary;
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+.add_new{
+    display: flex;
+    flex-direction: end;
+}
+
+.fas{
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+
 }
