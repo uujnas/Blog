@@ -1,9 +1,9 @@
     <%= link_to 'add new ', new_blog_path, class:"btn btn-outline-info float-right "%>
     <h3 class="spacing py-5 text-center">Our Blogs </h4>
         <% @blog.each do |f| %>
-        <div class="card mb-3">
+        <div class="box mb-3">
             <div class="card-body">
-                <h5 class="card-title"><span> <%= f.title %></span> </h5>
+                <h4> <%= f.title %></h4>
                 <p class="card-text"> <%= image_tag(f.profile_pic,class:"p_image")%> <%= f.written_by %>
                     (<%= f.job_title %>)<%= f.created_at.strftime("%B %d %Y") %></p>
                    
@@ -22,3 +22,5 @@
         <%# <%= f.description %>
 
         <% end %>
+
+        
