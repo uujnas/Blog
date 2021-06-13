@@ -1,7 +1,7 @@
+<div class="spacing" ></div>
 
-    <h3 class="spacing py-5 text-center">Our Blogs </h4>
         <% @blog.each do |f| %>
-        <div class="box mb-3">
+        <div class="box mb-3 p-3">
             <div class="card-body">
                 <h4> <%= f.title %></h4>
                 <p class="card-text"> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%> <%= f.written_by %>
