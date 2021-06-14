@@ -4,38 +4,50 @@
         height: auto;
         border-radius: 50%;
     }
+
+    #notice {
+        color: blue;
+    }
 </style>
+
 <div class="container">
+    <%# <p id="notice"><%= notice%></p>
     <div class="row">
-        <div class="col-md-3 recent-article">
-            <h6 class="heading py-2">Recent Articles</h4>
-                <% @blog.each do |f| %>
-                <p> <%= f.title %></p>
 
-                <p> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
+        <div class="col-md-4 recent-article">
+            <div class="box p-3">
+                <h6 class="heading py-2">Recent Articles</h4>
+                    <% @blog.each do |f| %>
+                    <p class="title"> <%= f.title %></p>
 
-                    <%= f.written_by %>(<%= f.created_at.strftime("%B %d %Y") %>)</p>
-                <hr />
+                    <p> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
 
-                <% end %>
+                        <%= f.written_by %>(<%= f.created_at.strftime("%B %d %Y") %>)</p>
+                    <hr />
+
+                    <% end %>
+            </div>
         </div>
-        <div class="col-md-9">
-            <h3 class="spacing py-3 text-center">Our Blogs </h3>
-        <div class="row">
-        <div class="col-md-6">
-        <%= search_form_for @q do |f| %>
-           <%= f.search_field :title_cont, class:"py-1 search",placeholder:"Title" %> 
-           <%= f.submit class:"btn btn-outline-success " %>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6">
+                    <%= search_form_for @q do |f| %>
+                    <%= f.search_field :title_cont, class:"py-1 text-center search",placeholder:" Title" %>
+                    <%= f.submit class:"btn btn-outline-success " %>
 
-           
-            <% end %>
-        
-        </div>
-        <div class="col-md-6">
-         <%= link_to 'add new ', new_blog_path, class:"btn btn-outline-info float-right "%>
-         </div>
-        </div>
+
+                    <% end %>
+
+                </div>
+                <% if user_signed_in? %>
+                <div class="col-md-6">
+                    <%= link_to 'add new ', new_blog_path, class:"btn btn-outline-info float-right "%>
+                </div>
             
+            <% else %>
+            <% end %>
+            </div>
+
 
             <%= render 'blogs/blogList' %>
 
