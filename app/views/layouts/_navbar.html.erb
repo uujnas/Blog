@@ -1,22 +1,53 @@
-<nav class="navbar navbar-expand-lg back fixed-top">
-<div class="container">
-  <a class="navbar-brand" href="#"><%= image_tag("logo.png", class: "img-responsive", id: "logo") %></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><%= image_tag("logo.png", class: "img-responsive", id: "logo") %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-      <%= link_to 'Blog', root_path, class:" nav-link"%>
-        <%# <a class="nav-link" href="#">Blog <span class="sr-only">(current)</span></a> %>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-     
-    </ul>
-   
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <%= link_to 'Blog', root_path, class:" nav-link"%>
+
+        </li>
+        <% if user_signed_in? %>
+
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link  text-danger" %>
+        </li>
+
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Login ",new_user_session_path, class:"nav-link  text-success" %>
+        </li>
+        <li class="nav-item">
+          <%# <%= link_to "Register",new_user_registration_path, class:"nav-link" %>
+        </li>
+        <% end %>
+
+
+
+      </ul>
+
+    </div>
   </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
