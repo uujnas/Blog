@@ -1,8 +1,14 @@
 class BlogsController < ApplicationController
+      before_action :authenticate_user!, except: [:index, :show]  
+
     def index
-        @blog = Blog.order("created_at DESC")
+        @blogs = Blog.all.order("created_at DESC")
         @q = Blog.ransack(params[:q])
         @blog = @q.result(distinct: true)
+    end
+
+    def search
+    
     end
 
     def new

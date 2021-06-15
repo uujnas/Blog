@@ -14,10 +14,10 @@
     <%# <p id="notice"><%= notice%></p>
     <div class="row">
 
-        <div class="col-md-4 recent-article">
+        <div class="col-md-4 recent-article pb-3">
             <div class="box p-3">
                 <h6 class="heading py-2">Recent Articles</h4>
-                    <% @blog.each do |f| %>
+                    <% @blogs.each do |f| %>
                     <p class="title"> <%= f.title %></p>
 
                     <p> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
@@ -43,9 +43,9 @@
                 <div class="col-md-6">
                     <%= link_to 'add new ', new_blog_path, class:"btn btn-outline-info float-right "%>
                 </div>
-            
-            <% else %>
-            <% end %>
+
+                <% else %>
+                <% end %>
             </div>
 
 
