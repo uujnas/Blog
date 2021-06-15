@@ -1,6 +1,10 @@
+
 <div class="spacing"></div>
 
-<% @blog.each do |f| %>
+<%# <%= will_paginate @blogs, renderer: BootstrapPagination::Rails %> 
+ 
+
+<% @blogs.each do |f| %>
 <div class="box mb-3 p-3">
     <div class="card-body">
         <h4> <%= f.title %></h4>
@@ -26,9 +30,9 @@
     </div>
 </div>
 
-
-
-
 <%# <%= f.description %>
 
 <% end %>
+ <div class="digg_pagination py-3">
+    <%= will_paginate @blogs %>
+  </div>
