@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
       before_action :authenticate_user!, except: [:index, :show]  
 
     def index
+        @category = Category.all
         @blogs = Blog.all.order("created_at DESC").paginate(page: params[:page],per_page:3)
         @q = Blog.ransack(params[:q])
         @blog = @q.result(distinct: true)
@@ -51,6 +52,6 @@ class BlogsController < ApplicationController
 
     private
     def post_params
-        params.require(:blog).permit(:written_by,:profile_pic,:job_title,:title,:description, :content)
+        params.require(:blog).permit(:written_by,:profile_pic,:job_title,:title,:description, :content, :category_id)
     end
 end

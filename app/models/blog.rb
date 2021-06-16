@@ -5,5 +5,7 @@ class Blog < ApplicationRecord
     validates :title, :length =>{:minimum => 10}
     # validates :description, :length =>{:minimum =>50}
     has_rich_text :content
+
+    belongs_to :category
    
 end

@@ -1,8 +1,7 @@
-
 <div class="spacing"></div>
 
-<%# <%= will_paginate @blogs, renderer: BootstrapPagination::Rails %> 
- 
+<%# <%= will_paginate @blogs, renderer: BootstrapPagination::Rails %>
+
 
 <% @blogs.each do |f| %>
 <div class="box mb-3 p-3">
@@ -22,9 +21,9 @@
             <%= link_to  blog_path(f),method: :delete, data:{confirm:"Are you sure you want to delete '#{f.title}?'"} do %>
             <i class="fas fa-trash-alt text-danger"></i><% end %>
             <% else %>
-                <%= link_to 'read more ', blog_path(f), class:""%>
+            <%= link_to 'read more ', blog_path(f), class:""%>
 
-     
+
             <% end %>
         </p>
     </div>
@@ -33,6 +32,6 @@
 <%# <%= f.description %>
 
 <% end %>
- <div class="digg_pagination py-3">
+<div class="digg_pagination py-3">
     <%= will_paginate @blogs %>
-  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container py-5">
+    <div class="row">
+
+        <%= form_with model: @category do |form| %>
+      
+        <div class="form-group">
+            <%= form.text_field :categories, placeholder: "Name", class:"form-control" %>
+        </div>
+        
+    
+        <%= form.submit class:"btn btn-success" %>
+        <% end %>
+    </div>
+</div>
