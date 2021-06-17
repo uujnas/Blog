@@ -17,10 +17,10 @@
         <div class="col-md-4 recent-article pb-3">
             <div class="box p-3">
                 <h6 class="heading py-2">Recent Articles</h4>
-               
+
                     <% @blogs.each do |f| %>
                     <p class="title"> <%= f.title %></p>
-                 
+
 
                     <p> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
 
@@ -28,7 +28,7 @@
                     <hr />
 
                     <% end %>
-                   
+
             </div>
         </div>
         <div class="col-md-8">
@@ -45,8 +45,8 @@
                 <% if user_signed_in? %>
                 <div class="col-md-6">
                     <%= link_to 'add new ', new_blog_path, class:"btn btn-outline-info float-right "%>
-            
-                   
+
+
                 </div>
 
                 <% else %>
@@ -57,12 +57,12 @@
             <%= render 'blogs/blogList' %>
 
         </div>
-            <%# <% @category.each do |f| %>   
+        <%# <% @category.each do |f| %>
 
-        <%# <%= f.categories  %> 
-      
-     
-            <%# <% end %> 
+        <%# <%= f.categories  %>
+
+
+        <%# <% end %>
 
     </div>
 
