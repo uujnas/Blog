@@ -8,10 +8,6 @@ class BlogsController < ApplicationController
         @blog = @q.result(distinct: true)
     end
 
-    def search
-    
-    end
-
     def new
         @blog = Blog.new
     end
@@ -43,6 +39,11 @@ class BlogsController < ApplicationController
         end
     end
 
+    # def correct_user
+    #     @blog = current_user.blogs.find_by(id:params[:id])
+    #     redirect_to blogs_path, notice: "Not authorized to edit" if @blog.nl?
+    # end
+
     def destroy
         @blog=Blog.find(params[:id])
         @blog.destroy
@@ -52,6 +53,6 @@ class BlogsController < ApplicationController
 
     private
     def post_params
-        params.require(:blog).permit(:written_by,:profile_pic,:job_title,:title,:description, :content, :category_id)
+        params.require(:blog).permit(:written_by,:profile_pic,:job_title,:title,:description, :content, :category_id,:user_id)
     end
 end
