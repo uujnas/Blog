@@ -9,6 +9,18 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+   <div class="field">
+    <%= f.label :Username %><br />
+    <%= f.text_field:username, autofocus: true, autocomplete: "email" %>
+  </div>
+   <div class="field">
+    <%= f.label :firstName %><br />
+    <%= f.text_field :full_name, autofocus: true, autocomplete: "email" %>
+  </div>
+   <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
+  </div>
 
   <div class="field">
     <%= f.label :password %>

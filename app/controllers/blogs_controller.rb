@@ -9,15 +9,16 @@ class BlogsController < ApplicationController
     end
 
     def new
-        @blog = Blog.new
+        @blog = current_user.blogs.build
     end
 
     def show
         @blog = Blog.find(params[:id])
+        # byebug
     end
 
     def create
-        @blog=Blog.new(post_params)
+        @blog=current_user.blogs.build(post_params)
         if @blog.save
             redirect_to root_path, notice:"Posted successfully"
         else

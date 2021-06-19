@@ -1,15 +1,15 @@
 <div class="container pb-5">
-  <h2 class="heading1"><%= @blog.title %></h2>
-  <h6>Category: <%= @blog.category.categories %>
+  <h1 class="heading1 text-center"><%= @blog.title %></h2>
+  <h6 class="text-center py-2">Category: <%= @blog.category.categories %></h6><br>
   <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-md-12 py-5">
       <%= image_tag(@blog.profile_pic, class:"img_box") if @blog.profile_pic.attached?%>
     </div>
-    <div class="col-md-6">
-      <h4 class="title"><%= @blog.written_by %>(<%= @blog.job_title %>)</h4>
+    <div class="col-md-12">
+      <h4 class="title text-center"><%= @blog.written_by %>(<%= @blog.job_title %>)</h4>
       <%# <p class="text-justify"> <%= @blog.description %></p>
-      <%= @blog.content %>
+      <%= @blog.content.as_json() %>
     </div>
 
   </div>

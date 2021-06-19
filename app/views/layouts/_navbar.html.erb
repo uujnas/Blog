@@ -13,6 +13,13 @@
 
         </li>
         <% if user_signed_in? %>
+        <li class="nav-item">
+       <%= current_user.email %>
+          <%# <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link  text-danger" %> 
+        </li>
+         <li class="nav-item">
+          <%= link_to "edit profile", edit_user_registration_path,  class:"nav-link  text-success" %>
+        </li>
 
         <li class="nav-item">
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link  text-danger" %>

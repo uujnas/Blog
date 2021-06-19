@@ -7,7 +7,7 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -212,8 +212,11 @@ body {
 .img_box {
     box-shadow: $box-shadow;
     border-radius: 10px;
-    margin: 20px;
+  
     width: 500px;
+    margin: auto;
+    display: block;
+  
 
 }
 

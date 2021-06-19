@@ -14,15 +14,15 @@
                 <p class="card-text"> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
                     <%= f.written_by %>
                     (<%= f.job_title %>)<%= f.created_at.strftime("%B %d %Y") %></p>
-                <%= f.content.to_plain_text.truncate_words(15) %>
+                <%= f.content.to_plain_text.truncate_words(15) %> <%= link_to 'read more ', blog_path(f), class:""%>
 
 
                 <p class="card-text">
 
                     <%# <% if user_signed_in?  %>
 
-                    <%= link_to blog_path(f) do %><i class="fas fa-eye text-success"></i><% end %>
-                    <%= link_to  edit_blog_path(f) do %><i class="fas fa-pencil-alt text-primary"></i><% end %>
+            
+                    <%= link_to  edit_blog_path(f) do %><i class="fas fa-pencil-alt text-primary pr-3"></i><% end %>
                     <%= link_to  blog_path(f),method: :delete, data:{confirm:"Are you sure you want to delete '#{f.title}?'"} do %>
                     <i class="fas fa-trash-alt text-danger"></i><% end %>
                 </p>
