@@ -9,7 +9,8 @@
     <div class="col-md-12">
       <h4 class="title text-center"><%= @blog.written_by %>(<%= @blog.job_title %>)</h4>
       <%# <p class="text-justify"> <%= @blog.description %></p>
-      <%= @blog.content.as_json() %>
+      <%= @blog.content%>
+      <%# <%=  "<div> My full_name is sanju </div>".html_safe %> 
     </div>
 
   </div>
