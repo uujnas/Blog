@@ -8,6 +8,13 @@ class CommentsController < ApplicationController
         redirect_to blogs_path
     end
 
+    def destroy
+        @comment = Comment.find(params[:id])
+        @comment.destroy
+        redirect_to root_path
+        
+    end
+
     private
     def create_params
         params.require(:comment).permit(:body, :blog_id)

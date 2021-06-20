@@ -1,4 +1,9 @@
 <p><%= comment.user.username %>
     <%= comment.created_at.strftime("[%B %d %Y]") %><br>
+<% if current_user && current_user == comment.user %>
+<%= link_to 'delete',blog_comment_path(@blog,comment), method: :delete,style:"float:right" %>
 
+
+<% end %>
     <%= comment.body %></p>
+    <hr/>
