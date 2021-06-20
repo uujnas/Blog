@@ -1,16 +1,27 @@
 <div class="container pb-5">
   <h1 class="heading1 text-center"><%= @blog.title %></h2>
-  <h6 class="text-center py-2">Category: <%= @blog.category.categories %></h6><br>
-  <div class="row">
+    <h6 class="text-center py-2">Category: <%= @blog.category.categories %></h6><br>
+    <div class="row">
 
-    <div class="col-md-12 py-5">
-      <%= image_tag(@blog.profile_pic, class:"img_box") if @blog.profile_pic.attached?%>
-    </div>
-    <div class="col-md-12">
-      <h4 class="title text-center"><%= @blog.written_by %>(<%= @blog.job_title %>)</h4>
-      <%# <p class="text-justify"> <%= @blog.description %></p>
-      <%= @blog.content%>
-      <%# <%=  "<div> My full_name is sanju </div>".html_safe %> 
-    </div>
+      <div class="col-md-12 py-5">
+        <%= image_tag(@blog.profile_pic, class:"img_box") if @blog.profile_pic.attached?%>
+      </div>
+      <div class="col-md-12">
+        <h4 class="title text-center"><%= @blog.written_by %>(<%= @blog.job_title %>)</h4>
+        <%# <p class="text-justify"> <%= @blog.description %></p>
+        <%= @blog.content%>
+        <%# <%=  "<div> My full_name is sanju </div>".html_safe %>
+      </div>
+      <div class="form py-5">
+        <%= form_with model: [@blog, @comment] do |f| %>
+        <%= f.text_field :body, class:"border py-2 m-2", placeholder:"Your Comment here" %>
+        <%= f.submit 'Comment', class:"btn btn-sm btn-primary" %>
+        <% end %><br>
 
-  </div>
+        <div id="comment_pane" class="box m-2 p-5">
+          <% @comments.each do |comment| %>
+          <%= render 'comments/create',comment: comment %>
+          <% end %>
+        </div>
+      </div>
+    </div>

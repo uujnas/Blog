@@ -13,8 +13,9 @@ class BlogsController < ApplicationController
     end
 
     def show
-     
         @blog = Blog.find(params[:id])
+        @comment = Comment.new
+        @comments = @blog.comments.order('created_at DESC')
         # byebug
     end
 
