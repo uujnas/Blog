@@ -10,7 +10,7 @@
             <div class="box  p-3">
                 <%= link_to blog_path(f) do %>
                 <h4> <%= f.title %></h4>
-                <%= f.written_by %>
+              
                 <% end %>
                 <p class="card-text"> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
                     <%= f.written_by %>
@@ -39,7 +39,7 @@
             <h4> <%= f.title %></h4>
             <% end %>
             <p class="card-text">
-                <% puts url_for(f.profile_pic) %>
+               
                 <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
                 <%= f.written_by %>
                 <%= f.created_at.strftime("%B %d %Y") %></p>

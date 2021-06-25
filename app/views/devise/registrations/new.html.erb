@@ -21,6 +21,16 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
   </div>
+ <div class="field">
+    <div class="gravatar_edit">
+      <%= f.file_field :avatar,
+        placeholder: 'Upload picture',
+        id: "change-img-field",
+        direct_upload: true
+        %>
+    </div>
+  </div>
+
 
   <div class="field">
     <%= f.label :password %>

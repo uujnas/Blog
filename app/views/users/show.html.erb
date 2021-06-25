@@ -1,9 +1,9 @@
 <div class="container py-3">
     <div class="col-md-12">
-        <h2 class="heading1">Username : <%= @user.username %> </h1>
-            <h4>Last name : <%= @user.last_name %> </h6>
-                <h5>Email Id : <%= @user.email %></h5><br>
-
+          <%= image_tag @user.avatar, class:"image"  if @user.avatar.attached %>
+        <h2 class="heading1"><%= @user.username %> <%= @user.last_name %> </h6></h1>
+            
+                <h5> <%= @user.email %></h5><br>
 
 
                 <h3 class="heading1">My blogs:</h3>
@@ -27,15 +27,11 @@
                     <% end %>
                 </table>
 
-
-
-
-
-
-
-
-
-
-
     </div>
 </div>
+<style>
+.image{
+    height:auto;
+    width:220px;
+    border-radius:50%;
+}
