@@ -3,9 +3,14 @@ class BlogsController < ApplicationController
 
     def index
         @category = Category.all
+        # @user_id = request
+    #     puts "TESTING"
+    #   e
+    #     puts params[:written_by]
+    #     puts "TESTING"
         @blogs = Blog.all.order("created_at DESC").paginate(page: params[:page],per_page:3)
-        @q = Blog.ransack(params[:q])
-        @blog = @q.result(distinct: true)
+        # @q = Blog.ransack(params[:q])
+        # @blog = @q.result(distinct: true)
     end
 
     def new
@@ -14,6 +19,7 @@ class BlogsController < ApplicationController
 
     def show
         @blog = Blog.find(params[:id])
+        p
         @comment = Comment.new
         @comments = @blog.comments.order('created_at DESC')
         # byebug
