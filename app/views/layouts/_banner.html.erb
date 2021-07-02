@@ -1,3 +1,10 @@
 <section class="banner">
-    <h1 class="heading1">Our Blogs</h1>
+<% if  @user.present?  %>
+ <%= image_tag @user.avatar, class:"image "  if @user.avatar.attached? %>
+    <h1 class="heading1 pt-5"><%= @user.username %> Blogs</h1>   
+   <% else %> 
+   <h1 class="heading">Our Blogs</h1>
+   <% end %>
   </section>
+
+ 

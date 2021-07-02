@@ -1,6 +1,6 @@
 <style>
     .p_image {
-        width: 30px;
+        width: 50px;
         height: auto;
         border-radius: 50%;
     }
@@ -9,7 +9,7 @@
         color: blue;
     }
 </style>
- 
+
 <div class="container">
     <%# <p id="notice"><%= notice%></p>
     <div class="row">
@@ -19,27 +19,51 @@
                 <h6 class="heading py-2">Recent Articles</h4>
 
                     <% @blogs.each do |f| %>
+
                     <p class="title"> <%= f.title %></p>
 
 
-                    <p> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
+                    <%=image_tag f.user.avatar, class:"p_image"  %>
 
-                        <%= f.written_by %>(<%= f.created_at.strftime("%B %d %Y") %>)</p>
+                    <%= f.written_by %>(<%= f.created_at.strftime("%B %d %Y") %>)</p>
                     <hr />
 
                     <% end %>
 
             </div>
+            <div class="row py-5">
+
+                <div class="col-md-12">
+                    <div class="box px-5 py-2">
+                        <h4 class="pt-2">Blogs Category <span class="ml-5 text-primary"><%= @category.count %></span>
+                        </h4>
+                        <hr>
+                        <% @category.each do |f| %>
+                        <%= link_to category_path(f) do %>
+
+                        <p> <%= f.categories %> <span>(<%= f.blogs.count %></span>) </p>
+                        <% end %>
+
+
+
+                        <% end %>
+                    </div>
+
+                </div>
+            </div>
         </div>
+
+
+
         <div class="col-md-8">
             <div class="row">
                 <%# <div class="col-md-6">
                     <%= search_form_for @q do |f| %>
-                    <%# <%= f.search_field :title_cont, class:"py-1 text-center search",placeholder:" Title" %> 
-                    <%# <%= f.submit class:"btn btn-outline-success " %> 
+                <%# <%= f.search_field :title_cont, class:"py-1 text-center search",placeholder:" Title" %>
+                <%# <%= f.submit class:"btn btn-outline-success " %>
 
 
-                    <%# <% end  %> 
+                <%# <% end  %>
 
                 <%# </div>  %>
                 <% if user_signed_in? %>
@@ -57,12 +81,6 @@
             <%= render 'blogs/blogList' %>
 
         </div>
-        <%# <% @category.each do |f| %>
-
-        <%# <%= f.categories  %>
-
-
-        <%# <% end %>
 
     </div>
 

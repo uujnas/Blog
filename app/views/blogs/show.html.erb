@@ -1,25 +1,35 @@
-<div class="container pb-5">
-  <h1 class="heading1 text-center"><%= @blog.title %></h2>
-    <h6 class="text-center py-2">Category: <%= @blog.category.categories %></h6><br>
+<div class="container">
+  <h1 class="heading1 text-center"><%= @blog.title %></h1> 
+    <h6 class="text-center">Category: <%= @blog.category.categories %></h6><br>
     <div class="row">
 
-      <div class="col-md-12 py-5">
+      <div class="col-md-12">
         <%= image_tag(@blog.profile_pic, class:"img_box") if @blog.profile_pic.attached?%>
       </div>
       <div class="col-md-12">
-        <h4 class="title text-center"><%= @blog.written_by %>(<%= @blog.job_title %>)</h4>
+        <h4 class="title text-center"><%= @blog.written_by %></h4>
         <%# <p class="text-justify"> <%= @blog.description %></p>
         <%= @blog.content%>
         <%# <%=  "<div> My full_name is sanju </div>".html_safe %>
       </div>
-      <div class="form py-5">
-        <%= form_with model: [@blog, @comment] do |f| %>
-        <%= f.text_field :body, class:"border py-2 m-2", placeholder:"Your Comment here" %>
-        <%= f.submit 'Comment', class:"btn btn-sm btn-primary" %>
-        <% end %><br>
+     
 
-        <div id="comment_pane" class="box m-2 p-5">
+
+<section class="comment pt-5">
+ <ol class="breadcrumb">
+  <%= form_with model: [@blog, @comment] do |f| %>
+    <li class="breadcrumb-item active"><h4>Leave a Comment:</h4></li>
+       <%= f.text_area :body, class:"form-control " %>
+       <%= f.submit 'Send', class:"btn btn-sm btn-primary my-3" %>
+          <% end %>
+  </ol>
+  </div>
+
+
+
+        <div id="comment_pane" class="m-2 p-3">
           <% @comments.each do |comment| %>
+          
           <%= render 'comments/create',comment: comment %>
           <% end %>
         </div>

@@ -10,6 +10,9 @@ end
 
 def show
     @category = Category.find(params[:id])
+    puts "TEST"
+    puts @category
+ puts   "TEST"
 end
 
 def create

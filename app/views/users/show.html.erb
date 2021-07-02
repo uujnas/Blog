@@ -1,37 +1,44 @@
 <div class="container py-3">
-    <div class="col-md-12">
-          <%= image_tag @user.avatar, class:"image"  if @user.avatar.attached %>
-        <h2 class="heading1"><%= @user.username %> <%= @user.last_name %> </h6></h1>
+    <div class="row">
+        <div class="col-md-12">
+            <%# image_tag @user.avatar, class:"image"  if @user.avatar.attached? %>
+            <%# <h2 class="heading1"><%= @user.username %>
+            <%# @user.last_name %>
+
             
-                <h5> <%= @user.email %></h5><br>
+             <h4 class="font-weight-bold"> <%= @user.full_name %> <%= @user.last_name %></h4> 
+             <h5> <%= @user.email %></h5>
+
+            <h4 class="heading font-weight-bold py-5">My blogs:</h4>
 
 
-                <h3 class="heading1">My blogs:</h3>
+            <table class="table table-light table-hover">
+                <% @user_blogs.each do |blog| %>
+                <thead>
                 
+                </thead>
+                <tbody class="py-5">
+                    <tr>
+                        <td><%= link_to blog.title, blog_path(blog) %></td>
+                        <td> <%= link_to  edit_blog_path(blog) do %><i
+                                class="fas fa-pencil-alt text-primary pr-3"></i><% end %></td>
+                        <td><%= link_to  blog_path(blog),method: :delete, data:{confirm:"Are you sure you want to delete '#{blog.title}?'"} do %>
+                            <i class="fas fa-trash-alt text-danger"></i><% end %>
+                        </td>
+                    </tr>
 
-                <table class="table">
-                    <% @user_blogs.each do |blog| %>
-                    <thead>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><%= link_to blog.title, blog_path(blog) %></td>
-                            <td> <%= link_to  edit_blog_path(blog) do %><i
-                                    class="fas fa-pencil-alt text-primary pr-3"></i><% end %></td>
-                            <td><%= link_to  blog_path(blog),method: :delete, data:{confirm:"Are you sure you want to delete '#{blog.title}?'"} do %>
-                                <i class="fas fa-trash-alt text-danger"></i><% end %>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                    <% end %>
-                </table>
+                </tbody>
+                <% end %>
+            </table>
+        </div>
 
     </div>
 </div>
 <style>
-.image{
-    height:auto;
-    width:220px;
-    border-radius:50%;
-}
+    .image {
+        height: auto;
+        width: 220px;
+        border-radius: 50%;
+    }
+
+    

@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
 
     def index
         @category = Category.all
+      
         # @user_id = request
     #     puts "TESTING"
     #   e

@@ -14,7 +14,7 @@
                 <% end %>
                 <p class="card-text"> <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
                     <%= f.written_by %>
-                    (<%= f.job_title %>)<%= f.created_at.strftime("%B %d %Y") %> <span
+                   <%= f.created_at.strftime("%B %d %Y") %> <span
                         class="text-success ml-5">Comments : <%= f.comments.count %></span></p>
 
                 <%= f.content.to_plain_text.truncate_words(15) %> <%= link_to 'read more ', blog_path(f), class:"" %>
@@ -40,7 +40,7 @@
             <% end %>
             <p class="card-text">
                
-                <%= image_tag(f.profile_pic,class:"p_image") if f.profile_pic.attached?%>
+               <%=image_tag f.user.avatar, class:"p_image"  %>
                 <%= f.written_by %>
                 <%= f.created_at.strftime("%B %d %Y") %></p>
             <%= f.content.to_plain_text.truncate_words(15) %>

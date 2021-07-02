@@ -1,9 +1,19 @@
-<p><%= comment.user.username %>
+<p>
+    <%= image_tag comment.user.avatar, class:"p_image"  %>
+    <%= comment.user.username %>
     <%= comment.created_at.strftime("[%B %d %Y]") %><br>
-<% if current_user && current_user == comment.user %>
-<%= link_to 'delete',blog_comment_path(@blog,comment), method: :delete,style:"float:right" %>
+    <% if current_user && current_user == comment.user %>
+    <%= link_to 'delete',blog_comment_path(@blog,comment), method: :delete,style:"float:right" %>
 
 
-<% end %>
+    <% end %>
     <%= comment.body %></p>
-    <hr/>
+<hr />
+
+<style>
+    .p_image {
+        height: 40px;
+        border-radius: 50%;
+        width: auto;
+    }
+</style>
